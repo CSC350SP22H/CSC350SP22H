@@ -1,0 +1,35 @@
+<html>
+<head>
+<style>
+body {background-color: lightpink;}
+</style>
+<script>
+function validate()
+{
+	if(document.getElementById("EMail").value == '')
+	{
+		alert("EMAIL FIELD IS EMPTY");
+		return false;
+	}
+	else
+	if(document.getElementById("Password").value == '')
+	{
+		alert("PASSWORD FIELD IS EMPTY");
+		return false;
+	}
+	else
+		
+	 return true;
+}
+</script>
+</head>
+<body>
+<form action="proj1.php" method="post" onsubmit="return validate();">
+<table>
+<tr><td>Email</td><td><input type="text" name="Number" id="Number"></td></tr>
+<tr><td>Password</td><td><input type="text" name="Password" id="Password"></td></tr>
+<tr colspan = "2"><td><input type="submit" value="SUBMIT"></td></tr>
+</table>
+</form>
+</body>
+</html>
