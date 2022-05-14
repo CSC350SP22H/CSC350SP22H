@@ -8,11 +8,13 @@ if(!$connect)  die("Error"); //else echo "connected";
 /********** CREATE QUERY**********/
 //$sql = "SELECT * FROM termproject.student";
 
-$email=$_REQUEST['email'];
-$password=$_REQUEST['psw'];
-$sql = "Insert into laundry.laundryma(email, MotDePass) VALUES('$email', '$password') ";
+$sql =
+"INSERT INTO laundryshema.people (apartmentNo, username, email, password)
+VALUES ('".$_REQUEST['apartmentNo']."','".$_REQUEST['username']."','".$_REQUEST['email']."','".$_REQUEST['psw']."')";
+
 $result = mysqli_query($connect, $sql); 	// Send the query to the database
-if($result){
-	echo 'You signed up successfully!';
-}
+if($result)
+	echo "STUDENT INSERTED";
+else
+	echo "STUDENT NOT INSERTED".mysqli_error($connect);
 ?>
