@@ -12,7 +12,7 @@ VALUES ('".$_REQUEST['apartmentNo']."','".$_REQUEST['username']."','".$_REQUEST[
 
 $result = mysqli_query($connect, $sql); 	// Send the query to the database
 if(!$result)
-	echo "Error";
+	echo "<h1><center>Error Occured. Please Try Again.<h1><center>";
 else
 	session_start();
 	$_SESSION["username"] = $_REQUEST['username'];

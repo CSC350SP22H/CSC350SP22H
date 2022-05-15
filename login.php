@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) > 0) 			// If there are rows present
 	$result = mysqli_query($connect, $sql);
 	$row = mysqli_fetch_row($result);
 	if (mysqli_num_rows($result) > 0){
-		$part1 = "Your appartment ";
+		$part1 = "<h1><center>Your appartment ";
 		$part2 = $row[0];
 		$part3 = " is already signed up for ";
 		$part4 = $row[1];
@@ -29,7 +29,7 @@ if (mysqli_num_rows($result) > 0) 			// If there are rows present
 		$timeslot = $row[2];
 		$times = array("12am-3am", "3am-6am", "6am-9am", "9am-12pm", "12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am");
 		$part6 = $times[$timeslot];
-		$part7 = " time slot.";
+		$part7 = " time slot.</h1><center>";
 		echo $part1.$part2.$part3.$part4.$part5.$part6.$part7;
 	}
 	else{
@@ -38,5 +38,5 @@ if (mysqli_num_rows($result) > 0) 			// If there are rows present
 	}
 }
 else
-	echo "Error"
+	echo "<h1><center>No such account has been found.<h1><center>"
 ?>
