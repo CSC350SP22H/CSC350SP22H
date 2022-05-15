@@ -12,8 +12,30 @@ if (mysqli_num_rows($result) > 0) 			// If there are rows present
 {
 	session_start();
 	$_SESSION["username"] = $_REQUEST['username'];
-	header("Location: http://localhost/project/calendarproj.html", TRUE, 301);
-	exit();
+
+	$sql = "SELECT apartmentNo FROM laundryshema.people WHERE username = '".$_SESSION['username']."'";
+	$result = mysqli_query($connect, $sql);
+	$row = mysqli_fetch_row($result);
+	$appN = $row[0];
+	$sql = "SELECT * FROM laundryshema.record WHERE apartmentNo = $appN";
+	$result = mysqli_query($connect, $sql);
+	$row = mysqli_fetch_row($result);
+	if (mysqli_num_rows($result) > 0){
+		$part1 = "Your appartment ";
+		$part2 = $row[0];
+		$part3 = " is already signed up for ";
+		$part4 = $row[1];
+		$part5 = " in ";
+		$timeslot = $row[2];
+		$times = array("12am-3am", "3am-6am", "6am-9am", "9am-12pm", "12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am");
+		$part6 = $times[$timeslot];
+		$part7 = " time slot.";
+		echo $part1.$part2.$part3.$part4.$part5.$part6.$part7;
+	}
+	else{
+		header("Location: http://localhost/project/calendarproj.html", TRUE, 301);
+		exit();
+	}
 }
 else
 	echo "Error"
