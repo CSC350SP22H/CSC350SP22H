@@ -14,7 +14,8 @@ VALUES ('".$_REQUEST['apartmentNo']."','".$_REQUEST['username']."','".$_REQUEST[
 
 $result = mysqli_query($connect, $sql); 	// Send the query to the database
 if($result)
-	echo "STUDENT INSERTED";
+	echo '<script>window.location.href = "calendar.html";</script>';
+	exit;
 else
-	echo "STUDENT NOT INSERTED".mysqli_error($connect);
+	echo "STUDENT NOT INSERTED";
 ?>
