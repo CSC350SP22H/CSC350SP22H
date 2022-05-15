@@ -13,7 +13,9 @@ $sql =
 VALUES ('".$_REQUEST['apartmentNo']."','".$_REQUEST['username']."','".$_REQUEST['email']."','".$_REQUEST['psw']."')";
 
 $result = mysqli_query($connect, $sql); 	// Send the query to the database
-if($result)
-	header("http://localhost/project/calendarproj.html", TRUE, 301);
+if(!$result)
+	echo "Error";
+else
+	header("Location: http://localhost/project/calendarproj.html", TRUE, 301);
 	exit();
 ?>

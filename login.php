@@ -8,11 +8,13 @@ if(!$connect)  die("Error"); //else echo "connected";
 /********** CREATE QUERY**********/
 //$sql = "SELECT * FROM termproject.student";
 
-$email=$_REQUEST['email'];
-$password=$_REQUEST['psw'];
-$sql = "Insert into laundry.laundryma(email, MotDePass) VALUES('$email', '$password') ";
-$result = mysqli_query($connect, $sql); 	// Send the query to the database
-if($result){
-	echo 'You signed up successfully!';
+$sql = "SELECT * FROM laundryshema.people WHERE username = '".$_REQUEST['username']."' AND password = '".$_REQUEST['password1']."'";
+$result = mysqli_query($connect, $sql);
+if (mysqli_num_rows($result) > 0) 			// If there are rows present
+{
+	header("Location: http://localhost/project/calendarproj.html", TRUE, 301);
+	exit();
 }
+else
+	echo "Error"
 ?>
