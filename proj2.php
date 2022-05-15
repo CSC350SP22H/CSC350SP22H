@@ -12,7 +12,7 @@ $split=explode(".", $reservation);
 $day=$split[0];
 $slot=intval($split[1]);
 
-$sql = "SELECT apartmentNo WHERE username = $_SESSION["username"]";
+$sql = "SELECT apartmentNo FROM laundryshema.people WHERE username = $_SESSION['username']";
 $appN = $result;
 
 $sql = "INSERT INTO laundryshema.record(apartmentNo, dayNo, slotNo) VALUES('$appN','$day', '$slot')";
