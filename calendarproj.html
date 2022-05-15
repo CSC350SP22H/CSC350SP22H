@@ -2,154 +2,140 @@
 <html>
 
 <head>
-    <style>
-        body, html {
-          height: 100%;
-        }
+  <style>
+  table {
+    border-collapse: collapse;
+    background: white;
+    color: black;
+  }
 
-        .bg {
-          /* The image used */
-          background-image: url("laundry_image.jpg");
+  th, td {
+    font-weight: bold;
+  }
+  </style>
 
-          /* Full height */
-          height: 100%;
+  <script>
+    const d = new Date();
+    const date = d.getDate();
+    const day = d.getDay();
+    const dayOfWeekName = new Date().toLocaleString('default', {weekday: 'long'});
+    var weekOfMonth = (Math.ceil((date - 1 - day) / 7))+1;
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+    document.write("<h1><center>Today is " + dayOfWeekName + " and it is the " + weekOfMonth + " week of " + monthNames[d.getMonth()] + "</center></h1>");
 
-          /* Center and scale the image nicely */
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-        table {
-            border-collapse: collapse;
-            background: white;
-            color: black;
-        }
+    function create(){
+      dhtml();
+    }
 
-        th,
-        td {
-            font-weight: bold;
-        }
-    </style>
+    function dhtml(){
+      var page =
+      `
+      <form action="proj2.php" method="post">
+        <table align="center" cellspacing="21" cellpadding="21">
+          <tr>
+            <th style="color: white; background: purple;"> Days </th>
+            <th style="color: white; background: purple;"> 12am-3am </th>
+            <th style="color: white; background: purple;"> 3am-6am </th>
+            <th style="color: white; background: purple;"> 6am-9am </th>
+            <th style="color: white; background: purple;"> 9am-12pm </th>
+            <th style="color: white; background: purple;"> 12pm-3pm </th>
+            <th style="color: white; background: purple;"> 3pm-6pm</th>
+            <th style="color: white; background: purple;"> 6pm-9pm </th>
+            <th style="color: white; background: purple;"> 9pm-12am </th>
+          </tr>
+
+          <tr>
+            <td> Monday </td>
+            <td><button type="submit" name="DayReserved" value="Monday.1">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Monday.1">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Monday.1">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Monday.1">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Monday.1">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Monday.1">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Monday.1">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Monday.1">Sign Up</button></td>
+          </tr>
+          <tr>
+          <td> Tuesday </td>
+            <td><button type="submit" name="DayReserved" value="Tuesday.2">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Tuesday.2">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Tuesday.2">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Tuesday.2">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Tuesday.2">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Tuesday.2">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Tuesday.2">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Tuesday.2">Sign Up</button></td>
+          </tr>
+          <tr>
+          <td> Wednesday </td>
+            <td><button type="submit" name="DayReserved" value="Wednesday.3">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Wednesday.3">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Wednesday.3">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Wednesday.3">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Wednesday.3">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Wednesday.3">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Wednesday.3">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Wednesday.3">Sign Up</button></td>
+          </tr>
+          <tr>
+          <td> Thursday </td>
+            <td><button type="submit" name="DayReserved" value="Thursday.4">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Thursday.4">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Thursday.4">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Thursday.4">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Thursday.4">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Thursday.4">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Thursday.4">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Thursday.4">Sign Up</button></td>
+          </tr>
+          <tr>
+          <td> Friday </td>
+            <td><button type="submit" name="DayReserved" value="Friday.5">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Friday.5">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Friday.5">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Friday.5">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Friday.5">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Friday.5">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Friday.5">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Friday.5">Sign Up</button></td>
+          </tr>
+          <tr>
+          <td> Saturday </td>
+            <td><button type="submit" name="DayReserved" value="Saturday.6">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Saturday.6">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Saturday.6">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Saturday.6">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Saturday.6">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Saturday.6">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Saturday.6">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Saturday.6">Sign Up</button></td>
+          </tr>
+          <tr>
+          <td> Sunday </td>
+            <td><button type="submit" name="DayReserved" value="Sunday.7">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Sunday.7">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Sunday.7">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Sunday.7">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Sunday.7">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Sunday.7">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Sunday.7">Sign Up</button></td>
+            <td><button type="submit" name="DayReserved" value="Sunday.7">Sign Up</button></td>
+          </tr>
+        </table>
+      </form>
+
+        `
+      xpage.innerHTML = page;
+    }
+    window.addEventListener("load", create);
+  </script>
 </head>
 
 <body>
-  <div class="bg">
-    <h2 align="center" style="color: orange;">
-        Month
-    </h2>
-    <br />
 
-    <table bgcolor="lightgrey" align="center"
-        cellspacing="21" cellpadding="21">
+  <div id="xpage"></div>
 
-
-        <thead>
-            <tr>
-                <th style="color: white; background: purple;">
-                    Time</th>
-                <th style="color: white; background: purple;">
-                    Sun</th>
-                <th style="color: white; background: purple;">
-                    Mon</th>
-                <th style="color: white; background: purple;">
-                    Tue</th>
-                <th style="color: white; background: purple;">
-                    Wed</th>
-                <th style="color: white; background: purple;">
-                    Thu</th>
-                <th style="color: white; background: purple;">
-                    Fri</th>
-                <th style="color: white; background: purple;">
-                    Sat</th>
-            </tr>
-        </thead>
-  <form method="post" action="proj2.php">
-        <tbody>
-            <tr>
-                <td>12am-3am</td>
-                <td><button type="submit" name="DayReserved" value="Sunday.1">Sign Up</button></td>
-                <td><button type="submit" name="DayReserved" value="Monday.1">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Tuesday.1">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Wednesday.1">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Thursday.1">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Friday.1">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Saturday.1">Sign Up</button></td>
-            </tr>
-            <tr></tr>
-            <tr>
-                <td>3am-6am</td>
-                <td><button type="submit" name="DayReserved" value="Sunday.2">Sign Up</button></td>
-                <td><button type="submit" name="DayReserved" value="Monday.2">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Tuesday.2">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Wednesday.2">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Thursday.2">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Friday.2">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Saturday.2">Sign Up</button></td>
-            </tr>
-            <tr>
-                <td>6am-9am</td>
-               <td><button type="submit" name="DayReserved" value="Sunday.3">Sign Up</button></td>
-                <td><button type="submit" name="DayReserved" value="Monday.3">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Tuesday.3">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Wednesday.3">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Thursday.3">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Friday.3">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Saturday.3">Sign Up</button></td>
-            </tr>
-            <tr>
-                <td>9am-12pm</td>
-              <td><button type="submit" name="DayReserved" value="Sunday.4">Sign Up</button></td>
-                <td><button type="submit" name="DayReserved" value="Monday.4">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Tuesday.4">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Wednesday.4">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Thursday.4">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Friday.4">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Saturday.4">Sign Up</button></td>
-            </tr>
-            <tr>
-               <td>12pm-3pm</td>
-               <td><button type="submit" name="DayReserved" value="Sunday.5">Sign Up</button></td>
-                <td><button type="submit" name="DayReserved" value="Monday.5">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Tuesday.5">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Wednesday.5">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Thursday.5">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Friday.5">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Saturday.5">Sign Up</button></td>
-            </tr>
-            <tr>
-                <td>3pm-6pm</td>
-                <td><button type="submit" name="DayReserved" value="Sunday.6">Sign Up</button></td>
-                <td><button type="submit" name="DayReserved" value="Monday.6">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Tuesday.6">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Wednesday.6">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Thursday.6">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Friday.6">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Saturday.6">Sign Up</button></td>
-            </tr>
-			<tr>
-                <td>6pm-9pm</td>
-                <td><button type="submit" name="DayReserved" value="Sunday.7">Sign Up</button></td>
-                <td><button type="submit" name="DayReserved" value="Monday.7">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Tuesday.7">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Wednesday.7">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Thursday.7">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Friday.7">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Saturday.7">Sign Up</button></td>
-            </tr>
-			<tr>
-                <td>9pm-12pm</td>
-                <td><button type="submit" name="DayReserved" value="Sunday.8">Sign Up</button></td>
-                <td><button type="submit" name="DayReserved" value="Monday.8">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Tuesday.8">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Wednesday.8">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Thursday.8">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Friday.8">Sign Up</button></td>
-				<td><button type="submit" name="DayReserved" value="Saturday.8">Sign Up</button></td>
-            </tr>
-        </tbody>
-		</form>
-    </table>
-  </div>
 </body>
 
 </html>
