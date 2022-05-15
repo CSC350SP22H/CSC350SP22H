@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `laundry` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `laundry`;
+CREATE DATABASE  IF NOT EXISTS `laundryshema` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `laundryshema`;
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
--- Host: localhost    Database: laundry
+-- Host: localhost    Database: laundryshema
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -18,54 +18,54 @@ USE `laundry`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `laundryma`
+-- Table structure for table `people`
 --
 
-DROP TABLE IF EXISTS `laundryma`;
+DROP TABLE IF EXISTS `people`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `laundryma` (
-  `IDasssigned` int NOT NULL AUTO_INCREMENT,
-  `MotDePass` varchar(22) DEFAULT NULL,
-  `email` varchar(48) DEFAULT NULL,
-  PRIMARY KEY (`IDasssigned`)
+CREATE TABLE `people` (
+  `apartmentNo` int NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `laundryma`
+-- Dumping data for table `people`
 --
 
-LOCK TABLES `laundryma` WRITE;
-/*!40000 ALTER TABLE `laundryma` DISABLE KEYS */;
-INSERT INTO `laundryma` VALUES (75,'12345',NULL),(76,'12345','afofana22@gmail.com');
-/*!40000 ALTER TABLE `laundryma` ENABLE KEYS */;
+LOCK TABLES `people` WRITE;
+/*!40000 ALTER TABLE `people` DISABLE KEYS */;
+INSERT INTO `people` VALUES (6,'a','a','a'),(-1,'aa','ds','asd'),(8,'bbb','bbb','bb'),(13,'John','johnjohn@gmail.com','john'),(2,'nugsagi','nugsagi@gmail.com','okok'),(5,'sg','nugsagi@gmail','aa'),(5,'sgaa','nugsagi@gmail','aa'),(5,'sgaaa','nugsagi@gmail','aa'),(5,'sgaaaa','nugsagi@gmail','aa'),(5,'sgaaaaa','nugsagi@gmail','aa'),(5,'sgaaaaaa','nugsagi@gmail','aa'),(5,'sgaaaaaaa','nugsagi@gmail','aa'),(5,'sgaaaaaaaqa','nugsagi@gmail','aa');
+/*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `laundrymachine`
+-- Table structure for table `record`
 --
 
-DROP TABLE IF EXISTS `laundrymachine`;
+DROP TABLE IF EXISTS `record`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `laundrymachine` (
-  `AvailableSlots` int DEFAULT NULL,
-  `IDasssigned` int DEFAULT NULL,
-  `DayofWeek` varchar(17) DEFAULT NULL,
-  `email` varchar(48) DEFAULT NULL,
-  UNIQUE KEY `signUp` (`DayofWeek`,`AvailableSlots`)
+CREATE TABLE `record` (
+  `apartmentNo` int NOT NULL,
+  `dayNo` varchar(10) NOT NULL,
+  `slotNo` int NOT NULL,
+  PRIMARY KEY (`apartmentNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `laundrymachine`
+-- Dumping data for table `record`
 --
 
-LOCK TABLES `laundrymachine` WRITE;
-/*!40000 ALTER TABLE `laundrymachine` DISABLE KEYS */;
-INSERT INTO `laundrymachine` VALUES (1,NULL,'Sunday',NULL),(1,NULL,'Monday',NULL),(1,NULL,'Tuesday',NULL);
-/*!40000 ALTER TABLE `laundrymachine` ENABLE KEYS */;
+LOCK TABLES `record` WRITE;
+/*!40000 ALTER TABLE `record` DISABLE KEYS */;
+INSERT INTO `record` VALUES (2,'Sunday',1),(5,'Saturday',3),(8,'Wednesday',2),(13,'Sunday',0);
+/*!40000 ALTER TABLE `record` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -77,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-11 18:19:29
+-- Dump completed on 2022-05-15 14:14:32
