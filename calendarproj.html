@@ -1,32 +1,48 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-  
+
 <head>
     <style>
+        body, html {
+          height: 100%;
+        }
+
+        .bg {
+          /* The image used */
+          background-image: url("laundry_image.jpg");
+
+          /* Full height */
+          height: 100%;
+
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
         table {
             border-collapse: collapse;
             background: white;
             color: black;
         }
-          
+
         th,
         td {
             font-weight: bold;
         }
     </style>
 </head>
-  
+
 <body>
-   
+  <div class="bg">
     <h2 align="center" style="color: orange;">
         Month
     </h2>
     <br />
-  
-    <table bgcolor="lightgrey" align="center" 
+
+    <table bgcolor="lightgrey" align="center"
         cellspacing="21" cellpadding="21">
-  
-       
+
+
         <thead>
             <tr>
                 <th style="color: white; background: purple;">
@@ -133,7 +149,7 @@
         </tbody>
 		</form>
     </table>
+  </div>
 </body>
-  
-</html>
 
+</html>

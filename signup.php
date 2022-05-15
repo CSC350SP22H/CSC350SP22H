@@ -16,6 +16,8 @@ $result = mysqli_query($connect, $sql); 	// Send the query to the database
 if(!$result)
 	echo "Error";
 else
+	session_start();
+	$_SESSION["username"] = $_REQUEST['username'];
 	header("Location: http://localhost/project/calendarproj.html", TRUE, 301);
 	exit();
 ?>

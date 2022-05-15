@@ -12,6 +12,8 @@ $sql = "SELECT * FROM laundryshema.people WHERE username = '".$_REQUEST['usernam
 $result = mysqli_query($connect, $sql);
 if (mysqli_num_rows($result) > 0) 			// If there are rows present
 {
+	session_start();
+	$_SESSION["username"] = $_REQUEST['username'];
 	header("Location: http://localhost/project/calendarproj.html", TRUE, 301);
 	exit();
 }
