@@ -89,14 +89,16 @@ if(!$connect)  die("Error"); //else echo "connected";
 							$day = "Sunday";
 						}
 						for ($y = 0; $y <= 8; $y++){
-							$sql="SELECT * FROM laundryshema.record WHERE dayNo = $day AND slotNo = $y";
+							$sql="SELECT * FROM laundryshema.record WHERE dayNo = '$day' AND slotNo = $y";
 							$result = mysqli_query($connect, $sql); 	// Send the query to the database
-							if ($result){
-								$part3 .= '<script>disable(';
+							if (mysqli_num_rows($result) > 0){
+								$part3 .= '
+								<script>disable("';
 								$part3 .= $day;
 								$part3 .= '.';
 								$part3 .= $y;
-								$part3 .= ');</script>';
+								$part3 .= '");</script>
+								';
 							}
 						}
 					}
