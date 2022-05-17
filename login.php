@@ -17,6 +17,7 @@ if (mysqli_num_rows($result) > 0) 			// If there are rows present
 	$result = mysqli_query($connect, $sql);
 	$row = mysqli_fetch_row($result);
 	$appN = $row[0];
+	$_SESSION['appN'] = $row[0];
 	$sql = "SELECT * FROM laundryshema.record WHERE apartmentNo = $appN";
 	$result = mysqli_query($connect, $sql);
 	$row = mysqli_fetch_row($result);
@@ -33,10 +34,10 @@ if (mysqli_num_rows($result) > 0) 			// If there are rows present
 		echo $part1.$part2.$part3.$part4.$part5.$part6.$part7;
 	}
 	else{
-		header("Location: http://localhost/project/calendarproj.html", TRUE, 301);
+		header("Location: http://localhost/project/calendarproj3.html", TRUE, 301);
 		exit();
 	}
 }
 else
-	echo "<h1><center>No such account has been found.<h1><center>"
+	echo "<h1><center>No such account has been found.</center></h1>"
 ?>
