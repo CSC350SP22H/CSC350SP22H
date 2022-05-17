@@ -21,7 +21,26 @@ if(!$connect)  die("Error"); //else echo "connected";
 
 		  th, td {
 		    font-weight: bold;
-		  }
+			}
+			.button {
+				width: 100%;
+				background-color: white;
+  			color: black;
+  			border: 2px solid #4CAF50;
+				padding: 14px 40px;
+				text-align: center;
+				font-size: 16px;
+				transition-duration: 0.15s;
+			}
+
+			.button:hover {
+  			background-color: #4CAF50;
+  			color: white;
+			}
+			.disabled {
+				border: 2px solid red;
+				pointer-events: none;
+
 		  </style>
 
 		  <script>
@@ -37,18 +56,38 @@ if(!$connect)  die("Error"); //else echo "connected";
 
 				$part2 = '
 					function disable(id){
-										document.getElementById(id).disabled = true;
+										var x = document.getElementById(id);
+										x.innerHTML = "Unavailable";
+										x.disabled = true;
+										x.classList.add("disabled");
 					}
 
 				';
 
 				$part3 = '
+					function disablePastDate(){
+						const d = new Date();
+						var dayOfWeek = 3;
+
+						const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+						for(let i = 0; i < 7; i++){
+							for(let j = 0; j < 8; j++){
+								if(dayOfWeek >= i){
+									disable("${days[i]}.${j}");
+								}
+							}
+						}
+					}
+					';
+
+				$part4 = '
 		    function createCalendar(){
+
 		      const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 		      for(let i = 0; i < 7; i++){
 		        document.writeln(`<tr><td> ${days[i]} </td>`);
 		            for(let j = 0; j < 8; j++){
-									document.writeln(`<td><button type="submit" name="DayReserved" value="${days[i]}.${j}" id="${days[i]}.${j}">Sign Up</button></td>`)
+									document.writeln(`<td><button class="button" type="submit" name="DayReserved" value="${days[i]}.${j}" id="${days[i]}.${j}">Sign Up</button></td>`)
 									}
 									document.writeln(`</tr>`);
 					}
@@ -70,7 +109,8 @@ if(!$connect)  die("Error"); //else echo "connected";
 		        <th style="color: white; background: purple;"> 6pm-9pm </th>
 		        <th style="color: white; background: purple;"> 9pm-12am </th>
 		      </tr>
-		      <script>createCalendar();</script>';
+		      <script>createCalendar();</script>
+					<script>disablePastDate();</script>';
 
 					for ($i = 0; $i <= 7; $i++){
 						if ($i == 0) {
@@ -92,22 +132,22 @@ if(!$connect)  die("Error"); //else echo "connected";
 							$sql="SELECT * FROM laundryshema.record WHERE dayNo = '$day' AND slotNo = $y";
 							$result = mysqli_query($connect, $sql); 	// Send the query to the database
 							if (mysqli_num_rows($result) > 0){
-								$part3 .= '
+								$part4 .= '
 								<script>disable("';
-								$part3 .= $day;
-								$part3 .= '.';
-								$part3 .= $y;
-								$part3 .= '");</script>
+								$part4 .= $day;
+								$part4 .= '.';
+								$part4 .= $y;
+								$part4 .= '");</script>
 								';
 							}
 						}
 					}
 
-		$part4 = '
+		$part5 = '
 		</body>
 
 		</html>
 		';
 
-		echo $part1.$part2.$part3.$part4;
+		echo $part1.$part2.$part3.$part4.$part5;
 ?>
