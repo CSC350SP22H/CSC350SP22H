@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0) 			// If there are rows present
 		echo $part1.$part2.$part3.$part4.$part5.$part6.$part7;
 	}
 	else{
-		header("Location: http://localhost/project/calendarproj3.html", TRUE, 301);
+		header("Location: http://localhost/project/calendarPHP.php", TRUE, 301);
 		exit();
 	}
 }

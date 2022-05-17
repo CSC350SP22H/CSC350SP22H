@@ -20,6 +20,6 @@ if(!$result)
 else
 	session_start();
 	$_SESSION["username"] = $_REQUEST['username'];
-	header("Location: http://localhost/project/calendarproj3.html", TRUE, 301);
+	header("Location: http://localhost/project/calendarPHP.php", TRUE, 301);
 	exit();
 ?>
