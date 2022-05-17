@@ -112,6 +112,7 @@ if(!$connect)  die("Error"); //else echo "connected";
 		      <script>createCalendar();</script>
 					<script>disablePastDate();</script>';
 
+
 					for ($i = 0; $i <= 7; $i++){
 						if ($i == 0) {
 							$day = "Monday";
@@ -143,11 +144,55 @@ if(!$connect)  die("Error"); //else echo "connected";
 						}
 					}
 
+					$dayWeek = date("w");
+					date_default_timezone_set("America/New_York");
+					if(date("h") == 12)
+						$hour = 0;
+					else
+						$hour = date("h");
+					for ($i = 0; $i <= 6; $i++){
+						if ($i == 0) {
+							$day = "Monday";
+						} elseif ($i == 1) {
+							$day = "Tuesday";
+						} elseif ($i == 2) {
+							$day = "Wednesday";
+						} elseif ($i == 3) {
+							$day = "Thursday";
+						} elseif ($i == 4) {
+							$day = "Friday";
+						} elseif ($i == 5) {
+							$day = "Saturday";
+						} elseif ($i == 6) {
+							$day = "Sunday";
+						}
+						for ($y = 0, $z = 1; $y <= 8; $y++, $z++){
+							if($dayWeek-1 > $i){
+								$part4 .= '
+								<script>disable("';
+								$part4 .= $day;
+								$part4 .= '.';
+								$part4 .= $y;
+								$part4 .= '");</script>
+								';
+							}
+							if($dayWeek-1 == $i && $hour >= $z*3){
+								$part4 .= '
+								<script>disable("';
+								$part4 .= $day;
+								$part4 .= '.';
+								$part4 .= $y;
+								$part4 .= '");</script>
+								';
+							}
+						}
+					}
+
 		$part5 = '
 		</body>
 
 		</html>
 		';
 
-		echo $part1.$part2.$part3.$part4.$part5;
+		echo $part1.$part2.$part4.$part5;
 ?>
