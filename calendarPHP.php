@@ -97,6 +97,9 @@ if(!$connect)  die("Error"); //else echo "connected";
 
 		<body>
 		  <form action="InsertingTimeAndDay.php" method="post">
+				<center><h2>
+					Please remember that a single apartment can ONLY have a single submission with no way to change it.</br>
+				</h2></center>
 		    <table align="center" cellspacing="21" cellpadding="21">
 		      <tr>
 		        <th style="color: white; background: purple;"> Days </th>
@@ -145,7 +148,7 @@ if(!$connect)  die("Error"); //else echo "connected";
 					}
 
 
-					$dayWeek = date("N")-2;
+					$dayWeek = date("N")-1;
 					date_default_timezone_set("America/New_York");
 					if(date("H") == 24)
 						$hour = 0;
