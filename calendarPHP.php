@@ -144,12 +144,13 @@ if(!$connect)  die("Error"); //else echo "connected";
 						}
 					}
 
-					$dayWeek = date("w");
+
+					$dayWeek = date("N")-2;
 					date_default_timezone_set("America/New_York");
-					if(date("h") == 12)
+					if(date("H") == 24)
 						$hour = 0;
 					else
-						$hour = date("h");
+						$hour = date("H");
 					for ($i = 0; $i <= 6; $i++){
 						if ($i == 0) {
 							$day = "Monday";
@@ -167,7 +168,7 @@ if(!$connect)  die("Error"); //else echo "connected";
 							$day = "Sunday";
 						}
 						for ($y = 0, $z = 1; $y <= 8; $y++, $z++){
-							if($dayWeek-1 > $i){
+							if($dayWeek > $i){
 								$part4 .= '
 								<script>disable("';
 								$part4 .= $day;
@@ -176,7 +177,7 @@ if(!$connect)  die("Error"); //else echo "connected";
 								$part4 .= '");</script>
 								';
 							}
-							if($dayWeek-1 == $i && $hour >= $z*3){
+							if($dayWeek == $i && $hour >= $z*3){
 								$part4 .= '
 								<script>disable("';
 								$part4 .= $day;

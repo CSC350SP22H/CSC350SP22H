@@ -16,7 +16,11 @@ $appN = $_SESSION['appN'];
 $sql = "INSERT INTO laundryshema.record(apartmentNo, dayNo, slotNo) VALUES('$appN', '$day', '$slot')";
 $result = mysqli_query($connect, $sql); 	// Send the query to the database
 if($result)
-	echo '<h1><center>You signed up successfully!</center></h1>';
+	echo '<center>
+				<h1>You signed up successfully!</h1>
+				<a href="http://localhost/project/login.html">Go To Login Page</a>
+				</center>
+	';
 else
 	echo "Error";
 ?>

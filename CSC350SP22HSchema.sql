@@ -39,7 +39,6 @@ CREATE TABLE `people` (
 
 LOCK TABLES `people` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
-INSERT INTO `people` VALUES (6,'a','a','a'),(-1,'aa','ds','asd'),(8,'bbb','bbb','bb'),(13,'John','johnjohn@gmail.com','john'),(2,'nugsagi','nugsagi@gmail.com','okok'),(5,'sg','nugsagi@gmail','aa'),(5,'sgaa','nugsagi@gmail','aa'),(5,'sgaaa','nugsagi@gmail','aa'),(5,'sgaaaa','nugsagi@gmail','aa'),(5,'sgaaaaa','nugsagi@gmail','aa'),(5,'sgaaaaaa','nugsagi@gmail','aa'),(5,'sgaaaaaaa','nugsagi@gmail','aa'),(5,'sgaaaaaaaqa','nugsagi@gmail','aa');
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +63,6 @@ CREATE TABLE `record` (
 
 LOCK TABLES `record` WRITE;
 /*!40000 ALTER TABLE `record` DISABLE KEYS */;
-INSERT INTO `record` VALUES (2,'Sunday',1),(5,'Saturday',3),(8,'Wednesday',2),(13,'Sunday',0);
 /*!40000 ALTER TABLE `record` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -77,4 +75,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-15 14:14:32
+-- Dump completed on 2022-05-23 21:43:25
